@@ -1,0 +1,10 @@
+<h3><%= @post.title %></h3>
+<ul>
+  <li><%= @post.url %></li>
+  <li><%= @post.content %></li>
+
+  <li>posted by <%= @post.author.username %></li>
+</ul>
+<br>
+
+<%= link_to "Edit your post", edit_post_url(@post) %>
