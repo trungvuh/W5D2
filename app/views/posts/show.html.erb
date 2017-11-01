@@ -13,11 +13,11 @@
   </ul>
   <br>
 
-  <ul>
-    <% @post.comments.each do |comment| %>
-      <li><%= comment.content %></li>
-    <% end %>
-  </ul>
+  <b>Comment:</b>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <% end %>
+
 </ul>
 <br>
 
