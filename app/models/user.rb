@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
   has_many :subs, dependent: :destroy, inverse_of: :moderator
   has_many :posts, dependent: :destroy, inverse_of: :author
+  has_many :comments, dependent: :destroy, inverse_of: :author
 
   attr_reader :password
 

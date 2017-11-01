@@ -11,7 +11,15 @@
       <li><%= link_to s.title, sub_url(s) %></li>
     <% end %>
   </ul>
+  <br>
+
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li><%= comment.content %></li>
+    <% end %>
+  </ul>
 </ul>
 <br>
 
+<%= button_to "Add a Comment", new_post_comment_url(@post), method: :get %>
 <%= button_to "Edit your post", edit_post_url(@post), method: :get %>
