@@ -1,10 +1,17 @@
-<h3><%= @post.title %></h3>
+<h3>Title: <%= @post.title %></h3>
 <ul>
-  <li><%= @post.url %></li>
-  <li><%= @post.content %></li>
-
+  <li>Url: <a href="#"><%= @post.url %></a></li>
+  <li>Content: <%= @post.content %></li>
   <li>posted by <%= @post.author.username %></li>
+
+  <br>
+  <b>Associated Sub</b>
+  <ul>
+    <% @post.subs.each do |s| %>
+      <li><%= link_to s.title, sub_url(s) %></li>
+    <% end %>
+  </ul>
 </ul>
 <br>
 
-<%= link_to "Edit your post", edit_post_url(@post) %>
+<%= button_to "Edit your post", edit_post_url(@post), method: :get %>

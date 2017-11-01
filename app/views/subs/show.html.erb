@@ -27,6 +27,14 @@
     </label>
     <br><br>
 
+    <% Sub.all.each do |s| %>
+      <label>
+        <input type="checkbox" name="post[sub_ids][]" value="<%= s.id %>">
+        <%= s.title %>
+      </label>
+      <br>
+    <% end %>
+
     <input type="hidden" name="post[sub_id]" value="@sub.id">
 
     <label>Content
@@ -39,6 +47,7 @@
     <input type="submit" value="Submit">
 
   </form>
+
 
 <br>
 <%= button_to "Edit your sub", edit_sub_url(@sub), method: :get %>

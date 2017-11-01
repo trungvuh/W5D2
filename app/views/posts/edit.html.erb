@@ -13,6 +13,21 @@
     </label>
     <br><br>
 
+    <b>Associated Subs</b>
+    <br>
+    <% Sub.all.each do |s| %>
+      <label>
+        <input
+          type="checkbox"
+          name="post[sub_ids][]"
+          value="<%= s.id %>"
+          <%= "checked" if @post.sub_ids.include?(s.id) %> >
+        <%= s.title %>
+      </label>
+      <br>
+    <% end %>
+    <br>
+
     <label>Content
     <textarea name="post[content]" >
       <%= @post.content %>

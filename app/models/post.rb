@@ -13,9 +13,12 @@
 #
 
 class Post < ApplicationRecord
-  validates :title, :sub, :author, presence: true
+  validates :title, :subs, :author, presence: true
 
-  belongs_to :sub, inverse_of: :posts
+  has_many :post_subs, inverse_of: :post, dependent: :destroy
+  has_many :subs, through: :post_subs, source: :sub, inverse_of: :posts
+  # belongs_to :sub, inverse_of: :posts
+
   belongs_to :author,
     class_name: :User,
     primary_key: :id,
